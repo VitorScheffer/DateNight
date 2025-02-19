@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Night Dice Roller</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6f7;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            border: 2px solid #f8b7d3;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #e64a74;
+            margin-bottom: 20px;
+            font-family: 'Cursive', sans-serif;
+        }
+
+        .dice-wrapper {
+            display: block;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .dice-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ff6b81;
+            font-weight: bold;
+        }
+
+        .dice {
+            font-size: 48px;
+            margin: 10px auto;
+            display: block;
+            width: 90%;
+            height: 100px;
+            background-color: #f8b7d3;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 10px;
+            border: 2px solid #ff6b81;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .dice:hover {
+            background-color: #ff6b81;
+            transform: translateY(-5px);
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #e64a74;
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            transform: translateY(2px);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .dice-title {
+                font-size: 18px;
+            }
+
+            .dice {
+                font-size: 36px;
+                height: 80px;
+                line-height: 80px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Date Night Dice Roller</h1>
+        
+        <!-- Dice wrappers with titles -->
+        <div class="dice-wrapper">
+            <div class="dice-title">What to eat</div>
+            <div id="dice1" class="dice">❤️</div>
+        </div>
+        <div class="dice-wrapper">
+            <div class="dice-title">What to do</div>
+            <div id="dice2" class="dice">❤️</div>
+        </div>
+        <div class="dice-wrapper">
+            <div class="dice-title">After that?</div>
+            <div id="dice3" class="dice">❤️</div>
+        </div>
+        <div class="dice-wrapper">
+            <div class="dice-title">Sexy time</div>
+            <div id="dice4" class="dice">❤️</div>
+        </div>
+        <div class="dice-wrapper">
+            <div class="dice-title">???</div>
+            <div id="dice5" class="dice">❤️</div>
+        </div>
+
+        <br><br>
+        <button onclick="rollDice()">Roll Dice</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+
+    <script>
+        // Each dice has its own list of possible values
+        const diceValues1 = ["Italian", "Mexican", "Chinese", "Japanese", "Thai", "French", "Greek", "Vietnamese", "Korean"];
+        const diceValues2 = ["Movie", "Mini Golf", "Bowling", "Museum", "Park Walk", "Board Games", "Dancing", "Concert", "Art Gallery", "Arcade"];
+        const diceValues3 = ["Ice Cream", "Stargazing", "Night Market", "Rooftop Bar", "Drive-in Movie", "Evening Picnic", "City Lights Tour", "Late Night Cafe", "Dessert Shop", "Moonlit Beach Walk"];
+        const diceValues4 = ["Massage", "Sensual Dance", "Bubble Bath", "Blindfold Play", "Role Play", "Strip Tease", "Body Worship", "Candlelit Romance", "Slow Kisses", "Gentle Touch"];
+        const diceValues5 = ["---"];
+
+        // Function to roll the dice
+        function rollDice() {
+            let dice1 = diceValues1[Math.floor(Math.random() * diceValues1.length)];
+            let dice2 = diceValues2[Math.floor(Math.random() * diceValues2.length)];
+            let dice3 = diceValues3[Math.floor(Math.random() * diceValues3.length)];
+            let dice4 = diceValues4[Math.floor(Math.random() * diceValues4.length)];
+            let dice5 = diceValues5[Math.floor(Math.random() * diceValues5.length)];
+
+            document.getElementById("dice1").innerText = dice1;
+            document.getElementById("dice2").innerText = dice2;
+            document.getElementById("dice3").innerText = dice3;
+            document.getElementById("dice4").innerText = dice4;
+            document.getElementById("dice5").innerText = dice5;
+        }
+        
+        function reset(){
+            document.getElementById("dice1").innerText = "❤️";
+            document.getElementById("dice2").innerText = "❤️";
+            document.getElementById("dice3").innerText = "❤️";
+            document.getElementById("dice4").innerText = "❤️";
+            document.getElementById("dice5").innerText = "❤️";
+        }
+    </script>
+</body>
+</html>
